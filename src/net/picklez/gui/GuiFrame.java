@@ -95,6 +95,9 @@ public class GuiFrame  extends JFrame {
 	private AddressBook addressBook;
 	private MeetingBook meetingBook;
 
+	/**
+	 * Creates the gui frame with all panels/tabs and components
+	 */
 	public GuiFrame() {
 		super("Contact Manager");
 		this.setResizable(false);
@@ -535,11 +538,17 @@ public class GuiFrame  extends JFrame {
 		this.postCreation();
 	}
 
+	/**
+	 * Called after the gui has been created -- debug prints
+	 */
 	private void postCreation() {
 		log("Gui loaded");
 		log("Post creation running...");
 	}
 
+	/**
+	 * Populates the contacts components with address book
+	 */
 	public void populateContacts(AddressBook add) {
 		this.addressBook = add;
 		String[] contacts = add.getContactsAsStringArray();
@@ -549,6 +558,9 @@ public class GuiFrame  extends JFrame {
 		contactsList.setModel(model);
 	}
 	
+	/**
+	 * Populates the contacts search field with all found results
+	 */
 	public void populateContactSearch(ArrayList<Contact> contacts) {
 		DefaultListModel<String> model = new DefaultListModel<String>();
 		for (Contact c : contacts)
@@ -556,6 +568,9 @@ public class GuiFrame  extends JFrame {
 		searchedContactsList.setModel(model);
 	}
 
+	/**
+	 * Populates the meetings components with meeting book
+	 */
 	public void populateMeetings(MeetingBook meet) {
 		this.meetingBook = meet;
 		String[] meetings = meet.getMeetingsAsStringArray();
@@ -565,6 +580,9 @@ public class GuiFrame  extends JFrame {
 		meetingsList.setModel(model);
 	}
 	
+	/**
+	 * Populates the meetings search field with all found results
+	 */
 	public void populateMeetingSearch(ArrayList<Meeting> meetings) {
 		DefaultListModel<String> model = new DefaultListModel<String>();
 		for (Meeting m : meetings)
@@ -572,10 +590,16 @@ public class GuiFrame  extends JFrame {
 		searchedMeetingsList.setModel(model);
 	}
 
+	/**
+	 * Returns the name of the current theme selected
+	 */
 	public static String getCurrentTheme() {
 		return UIManager.getLookAndFeel().toString();
 	}
 	
+	/**
+	 * Logs a given method
+	 */
 	public static void log(String s) {
 		logString += s + "\n";
 		if (logTextPane != null)

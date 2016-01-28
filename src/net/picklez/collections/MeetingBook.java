@@ -84,6 +84,9 @@ public class MeetingBook {
 		}
 	}
 	
+	/**
+	 * Returns a meeting with specific topic
+	 */
 	public Meeting getMeetingFromTopic(String topic) {
 		Meeting meeting = null;
 		for (Meeting m : this.meetings) {
@@ -94,10 +97,17 @@ public class MeetingBook {
 		return meeting;
 	}
 
+	/**
+	 * Returns all meetings in an arraylist
+	 */
 	public ArrayList<Meeting> getMeetings() {
 		return this.meetings;
 	}
 	
+	/**
+	 * Returns all the meetings into a string array
+	 * @return
+	 */
 	public String[] getMeetingsAsStringArray() {
 		String[] meetings = new String[this.meetings.size()];
 
@@ -109,15 +119,25 @@ public class MeetingBook {
 		return meetings;
 	}
 
+	/**
+	 * Removes a meeting
+	 */
 	public void removeMeeting(Meeting m) {
 		this.meetings.remove(m);
 		this.getFile().writeToFile(this.getBookAsFileContent());
 	}
+	
+	/**
+	 * Overwrites a meeting
+	 */
 	public void replaceMeeting(Meeting c, Meeting c2) {
 		this.meetings.set(this.meetings.indexOf(c), c2);
 		this.getFile().writeToFile(this.getBookAsFileContent());
 	}
 	
+	/**
+	 * Returns the meeting book as file format
+	 */
 	public String getBookAsFileContent() {
 		String result = "//Meeting topic,ID,date,members\n";
 		for (Meeting m : this.meetings) {

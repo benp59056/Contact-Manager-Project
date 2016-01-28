@@ -60,6 +60,9 @@ public class AddressBook {
 		}
 	}
 
+	/**
+	 * Returns contacts in an arryalist
+	 */
 	public ArrayList<Contact> getContacts() {
 		return this.contacts;
 	}
@@ -73,6 +76,9 @@ public class AddressBook {
 		}
 	}
 
+	/**
+	 * Returns the contacts into a String array
+	 */
 	public String[] getContactsAsStringArray() {
 		String[] contacts = new String[this.contacts.size()];
 
@@ -84,6 +90,9 @@ public class AddressBook {
 		return contacts;
 	}
 	
+	/**
+	 * Returns an instance of a contact from their name
+	 */
 	public Contact getContactFromName(String name) {
 		Contact contact = null;
 		
@@ -95,16 +104,25 @@ public class AddressBook {
 		return contact;
 	}
 
+	/**
+	 * Removes contact
+	 */
 	public void removeContact(Contact c) {
 		this.contacts.remove(c);
 		this.getFile().writeToFile(this.getBookAsFileContent());
 	}
 	
+	/**
+	 * Overwrites contact 
+	 */
 	public void replaceContact(Contact c, Contact c2) {
 		this.contacts.set(this.contacts.indexOf(c), c2);
 		this.getFile().writeToFile(this.getBookAsFileContent());
 	}
 	
+	/**
+	 * Returns the book in file format
+	 */
 	public String getBookAsFileContent() {
 		String result = "//Name,DoB,Address,Postcode,Gender,Telephone\n";
 		for (Contact c : this.contacts) {

@@ -18,6 +18,9 @@ import java.awt.event.ActionEvent;
 */
 public class GuiAddMeeting extends JFrame {
 	
+	/**
+	 * Creates the interface to add a meeting
+	 */
 	public GuiAddMeeting() {
 		setTitle("Add meeting");
 		this.setLocationRelativeTo(null);

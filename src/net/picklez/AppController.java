@@ -69,19 +69,31 @@ public class AppController {
 		return this.book;
 	}
 	
+	/**
+	 * Returns the instance of the meeting book
+	 */
 	public MeetingBook getMeetingBook() {
 		return this.meetingsBook;
 	}
 	
+	/**
+	 * Adds a contact to the contact book
+	 */
 	public void addContactToBook(Contact c) {
 		this.book.addContact(c);
 		guiFrame.populateContacts(this.book);
 	}
 	
+	/**
+	 * Returns current instance of app controller class
+	 */
 	public static AppController getInstance() {
 		return appControllerInstance;
 	}
 
+	/**
+	 * Adds a meeting to the meeting book
+	 */
 	public void addMeetingToBook(Meeting meeting) {
 		this.meetingsBook.addMeeting(meeting);
 		guiFrame.populateMeetings(meetingsBook);

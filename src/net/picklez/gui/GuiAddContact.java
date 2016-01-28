@@ -18,6 +18,9 @@ import java.awt.event.ActionEvent;
 */
 public class GuiAddContact extends JFrame {
 	
+	/**
+	 * Creates the interface to add a contact
+	 */
 	public GuiAddContact() {
 		setTitle("Add contact");
 		this.setLocationRelativeTo(null);
